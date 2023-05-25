@@ -29,6 +29,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	//JWT
+	implementation 'com.auth0:java-jwt:3.4.1'
+
+	//For Test
+	runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
