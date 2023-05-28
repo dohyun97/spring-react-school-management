@@ -20,7 +20,7 @@ public class MemberDto {
     private String name;
 
     @NotBlank(message = "Please type username")
-    @Range(max = 20,min = 7,message ="username should be longer than 7 and shorter than 20 characters")
+    @Size(min = 7,max = 20,message ="username should be longer than 7 and shorter than 20 characters")
     private String username;
 
     @NotBlank(message = "Please type password")
@@ -29,7 +29,7 @@ public class MemberDto {
 
     private boolean isFirst;
 
-    @NotBlank(message = "Please select role")
+    @NotNull(message = "Please select role")
     private Role role;
     @Builder
     public MemberDto(Long id, String email,String name,String username, String password, Role role) {

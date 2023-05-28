@@ -3,11 +3,13 @@ package school.server.dto.Member;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 public class MemberUpdateDto {
@@ -16,7 +18,7 @@ public class MemberUpdateDto {
     private String email;
 
     @NotBlank(message = "Please type username")
-    @Range(max = 20,min = 7,message ="username should be longer than 7 and shorter than 20 characters")
+    @Size(max = 20,min = 7,message ="username should be longer than 7 and shorter than 20 characters")
     private String username;
 
     @NotBlank(message = "Please type password")
