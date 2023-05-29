@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import school.server.domain.Member;
 import school.server.dto.Member.MemberDto;
 import school.server.dto.Member.MemberUpdateDto;
-import school.server.excpetion.NoMemberException;
+import school.server.excpetion.customExceptions.NoMemberException;
 import school.server.repository.MemberRepository;
 
 import java.util.ArrayList;

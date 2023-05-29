@@ -1,4 +1,4 @@
-package school.server.excpetion;
+package school.server.excpetion.customExceptions;
 
 public class NoMemberException extends RuntimeException{
     public NoMemberException() {

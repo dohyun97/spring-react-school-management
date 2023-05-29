@@ -7,9 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import school.server.domain.Member;
 import school.server.dto.Member.MemberDto;
-import school.server.excpetion.NoMemberException;
+import school.server.excpetion.customExceptions.NoMemberException;
 import school.server.service.member.MemberServiceImpl;
 
 //localhost:8080/login 일 때 이 클래스가 작동

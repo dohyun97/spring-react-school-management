@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class TokenDto {
-
+    private boolean success = true;
     private String accessToken;
     private String refreshToken;
 

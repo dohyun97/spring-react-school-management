@@ -1,4 +1,4 @@
-package school.server.excpetion;
+package school.server.excpetion.customExceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

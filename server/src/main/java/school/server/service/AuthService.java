@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,8 +12,8 @@ import school.server.domain.RefreshToken;
 import school.server.dto.Member.LoginDto;
 
 import school.server.dto.Token.TokenDto;
-import school.server.excpetion.NoMemberException;
-import school.server.excpetion.UnauthorizedException;
+import school.server.excpetion.customExceptions.NoMemberException;
+import school.server.excpetion.customExceptions.UnauthorizedException;
 import school.server.repository.RefreshTokenRepository;
 
 @Service

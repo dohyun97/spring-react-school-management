@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 import school.server.dto.Member.MemberDto;
 import school.server.dto.Token.TokenDto;
-import school.server.excpetion.NoMemberException;
+import school.server.excpetion.customExceptions.NoMemberException;
 import school.server.service.member.MemberServiceImpl;
 
 
