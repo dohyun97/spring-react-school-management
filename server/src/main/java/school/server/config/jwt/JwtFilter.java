@@ -2,6 +2,7 @@ package school.server.config.jwt;
 
 import lombok.RequiredArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.StringUtils;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 // JWT 토큰이 유효한지 검증 후 JWT 토큰의 인증 정보를 현재 쓰레드의 SecurityContext 에 저장하는 역할 수행
 @RequiredArgsConstructor
+@Slf4j
 public class JwtFilter extends OncePerRequestFilter {
     private final String AUTHORIZATION_HEADER = "Authorization";
     private final String BEARER_PREFIX = "Bearer ";
@@ -26,14 +28,24 @@ public class JwtFilter extends OncePerRequestFilter {
         // 1. Request Header 에서 토큰을 꺼냄
         String jwt = resolveToken(request);
 
+
         // 2. validateToken 으로 토큰 유효성 검사
         // 정상 토큰이면 해당 토큰으로 Authentication 을 가져와서 SecurityContext 에 저장
-        if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
-            Authentication authentication = tokenProvider.getAuthentication(jwt);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        }
+
+            if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
+                Authentication authentication = tokenProvider.getAuthentication(jwt);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            }
 
         filterChain.doFilter(request, response);
+
+    }
+   //exclude filter for /api/reissue
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return "/api/reissue".equals(path);
     }
 
     private String resolveToken(HttpServletRequest request) {

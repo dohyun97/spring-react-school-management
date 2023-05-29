@@ -25,8 +25,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
-import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
-
 @Component
 @Slf4j
 public class TokenProvider  {
@@ -117,7 +115,9 @@ public class TokenProvider  {
         }
         return false;
 
+
     }
+
 
     private Claims getClaims(String accessToken) {
         try {

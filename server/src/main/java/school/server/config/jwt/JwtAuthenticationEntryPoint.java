@@ -8,11 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-//authorize 실패시 처리를 위한 클래스
+//authorize 실패시 처리를 위한 클래스 로그인이 안됬을때
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED); //401에러
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"reissue the accessToken"); //401에러
     }
 }
